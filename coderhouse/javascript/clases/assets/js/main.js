@@ -77,6 +77,6 @@
 
 // alert("El resultado de la suma es:" + " " + resultado);
 
-//Date().getFullYear()
-let date =  new Date().getFullYear();
-console.log(date);
+// //Date().getFullYear()
+// let date =  new Date().getFullYear();
+// console.log(date);
