@@ -215,12 +215,12 @@
 // }
 
 
-let numero1 = parseInt(prompt("Ingrese un número para comparar",0));
-let numero2 = parseInt(prompt("Ingrese el otro número",0));
+// let numero1 = parseInt(prompt("Ingrese un número para comparar",0));
+// let numero2 = parseInt(prompt("Ingrese el otro número",0));
 
-if((numero1 >= 10) && (numero2 <= 50)) {
-    SpeechRecognitionAlternative("Los números ingresados están entre 10 y 50 y son: "+numero1+" y "+numero2);
-}
+// if((numero1 >= 10) && (numero2 <= 50)) {
+//     SpeechRecognitionAlternative("Los números ingresados están entre 10 y 50 y son: "+numero1+" y "+numero2);
+// }
 
 
     
