@@ -353,52 +353,299 @@
 // console.log(nuevoPrecio);
 
 
-let total = 0;
+// let total = 0;
 
-function agregarAlCarrito() {
-    do {
-        let producto = prompt("¿Quieres comprar shampoo, acondicionador o ambos?")
-        let cantidad = parseInt(prompt("Ingresa la cantidad que deseas del producto"));
-        let precio = 0;
+// function agregarAlCarrito() {
+//     do {
+//         let producto = prompt("¿Quieres comprar shampoo, acondicionador o ambos?")
+//         let cantidad = parseInt(prompt("Ingresa la cantidad que deseas del producto"));
+//         let precio = 0;
 
-        switch (producto) {
-            case "shampoo":
-                precio = 500;
-                break;
-            case "acondicionador":
-                precio = 700;
-                break;
-            case "ambos":
-                precio = 1100;
-                break;
-            default :
-                alert("Alguno de los ingresados es incorrecto");
-                precio = 0;
-                cantidad = 0;
+//         switch (producto) {
+//             case "shampoo":
+//                 precio = 500;
+//                 break;
+//             case "acondicionador":
+//                 precio = 700;
+//                 break;
+//             case "ambos":
+//                 precio = 1100;
+//                 break;
+//             default :
+//                 alert("Alguno de los ingresados es incorrecto");
+//                 precio = 0;
+//                 cantidad = 0;
+//         }
+//         total = total + precio * cantidad;
+//         otroProducto = confirm("¿Quieres agregar otro producto?")
+//     }while(otroProducto);
+// }
+
+// function aplicarDescuento(total) {
+//     if(total >= 5000) {
+//         total = total * 0.80;
+//     }
+//     return total;
+// }
+// function calcularEnvio(total) {
+//     let confirmacion = confirm("¿Deseas envío a domicilio?")
+//     if(confirmacion && total >= 2000) {
+//         alert("Tienes envío gratis. El total de tu compra es $"+total)
+//     } else if ( confirmacion && total < 2000 && total != 0) {
+//         alert("El envío tiene un de $700. El total de tu compra es $"+total)
+//     } else {
+//         alert("El total de tu compra es"+total);
+//     }
+
+//     return total;
+// }
+
+// agregarAlCarrito();
+// calcularEnvio(aplicarDescuento(total));
+
+
+
+
+// let total = 0;
+
+// function agregarAlCarrito() {
+//     do {
+//         let cantidad = parseInt(prompt("Indica el kilometraje de tu auto")); 
+//         let producto = prompt("Ingresa el servicio: Cambio de aceite, balanceo o ambos");
+//         let precio = 0;
+
+//         switch (producto) {
+//             case "cambio de aceite":
+//                 precio = 10;
+//                 break;
+//             case "balanceo":
+//                 precio = 79990;
+//                 break;
+//             case "ambos":
+//                 precio = (10*cantidad)+balanceo-(((10*cantidad)+balanceo)*.20);
+//                 break;
+//             default :
+//                 alert("Servicio incorrecto, por favor escriba el servicio correcto");
+//                 precio = 0;
+//                 cantidad = 0;
+//         }
+//         total = total + precio * cantidad;
+//         otroProducto = confirm("¿Quieres agregar otro servicio?")
+//     } while(otroProducto);
+// }
+// function metodoDePago (total) {
+//     let metodo = prompt("Elige el método de pago ¿Débito o Crédito?")
+
+//     switch (metodo) {
+//         case "debito":
+//             tarjeta = alert("El total de su pago con tarjeta de débito es $"+total);
+//             if(debito){
+//                 alert("Transacción exitosa"); 
+//             }
+//             break;
+//         case "credito":
+//             tarjeta = pagoEnCuotas(total);
+//             if(credito){
+//                 alert("Transacción exitosa");
+//             }
+//             break;
+//     }
+
+// }
+// function pagoEnCuotas(total) {
+//     let seleccionCuotas = parseInt(prompt("Ingrese hasta un máximo de 12 cuotas (Sin interés)"));
+//     cuotas = total / seleccionCuotas;
+//     alert("Tu pago en cuotas quedará en $" +cuotas+ " mensuales");
+// }
+
+// agregarAlCarrito();
+// metodoDePago(total); 
+
+
+
+
+
+
+
+
+
+/////////////////////////////////// OBJETOS //////////////////////////////
+
+//Propiedades de un objeto
+// let nombre = "Homero";
+// let edad   = 39;
+// let calle  = "Av. Siempreviva 742";
+
+// Los variables anteriores entran relacionados entre sí, entonces mejor usamos un objeto literal
+// const persona1 = { nombre: "Homero", edad: 39, calle: "Av. Siempreviva 742" }
+// Se accede a los valores/propiedad de un objeto de la siguiente manera
+// console.log(persona1.nombre);
+// console.log(persona1.edad);
+// console.log(persona1.calle);
+
+// Se accede a los valores/propiedad de un objeto de la siguiente manera
+// console.log(persona1["nombre"]);
+// console.log(persona1["edad"]);
+// console.log(persona1["calle"]);
+
+
+// //Funcion constructora
+// function Persona(nombre, edad, calle) {
+//     this.nombre = nombre;
+//     this.edad   = edad;
+//     this.calle  = calle;
+// }
+// const persona1 = new Persona("Homero", 39, "Av. Siempreviva 742");
+// const persona2 = new Persona("Marge", 36, "Av. Siempreviva 742");
+
+
+
+// // Uso del "this"      
+ 
+// function Persona(literal) {
+//     this.nombre = literal.nombre;
+//     this.edad   = literal.edad;
+//     this.calle  = literal.calle;
+// }
+// const persona1 = new Persona({ nombre: "Homero", edad: 39, calle: "Av.Siempreviva 742" });
+
+
+
+
+// CONTRUCTORA
+
+// class Auto {
+//     constructor(marca, modelo, patente) {
+//         this.Marca = marca;
+//         this.modelo = modelo;
+//         this.patente = patente;
+//     }
+// };
+
+// const auto1 = new Auto ("Volkswagen", "Gol", "LSRV80")
+
+// console.log(Auto)
+
+
+// METODOS PERSONALIZADOS
+// function Persona(nombre, edad, calle) {
+//     this.nombre = nombre;
+//     this.edad   = edad;
+//     this.calle  = calle;
+//     this.hablar = function(){ console.log("HOLA SOY "+ this.nombre)}
+// }
+// const persona1 = new Persona("Homero", 39, "Av. Siempreviva 742");
+// const persona2 = new Persona("Marge", 36, "Av. Siempreviva 742");
+// persona1.hablar();
+// persona2.hablar();
+
+
+
+// class Producto {
+//     constructor(nombre, precio) {
+//         this.nombre  = nombre.toUpperCase();
+//         this.precio  = parseFloat(precio);
+//         this.vendido = false;
+//     }
+//     sumaIva() {
+//         this.precio = this.precio * 1.21;
+//     }
+//     vender() {
+//         this.vendido = true;
+//     }
+// }
+// const producto1 = new Producto("arroz", "125");
+// const producto2 = new Producto("fideo", "50");
+// producto1.sumaIva();
+// producto2.sumaIva();
+// producto1.vender();
+
+
+// console.log(producto1);
+// console.log(producto2);
+
+
+
+
+
+
+let producto = 0;
+let cantidadProducto = 0;
+let precio = 0;
+
+class Pedido {
+    constructor(producto, precio, cantidad){
+        this.producto = producto,
+        this.precio = precio,
+        this.cantidad = cantidad,
+        this.envio = 0,
+        this.subtotal = 0,
+        this.total = 0
+    }
+
+    // metodo
+    calcularSubtotal() {
+        this.subtotal = this.precio * this.cantidad;
+    }
+
+    calcularIva() {
+        return this.subtotal * 0.21;
+    }
+
+    calcularEnvio() {
+        if(this.subtotal >= 5000) {
+            this.envio = 0;
+        }else {
+            this.envio = 650;
         }
-        total = total + precio * cantidad;
-        otroProducto = confirm("¿Quieres agregar otro producto?")
-    }while(otroProducto);
-}
-
-function aplicarDescuento(total) {
-    if(total >= 5000) {
-        total = total * 0.80;
-    }
-    return total;
-}
-function calcularEnvio(total) {
-    let confirmacion = confirm("¿Deseas envío a domicilio?")
-    if(confirmacion && total >= 2000) {
-        alert("Tienes envío gratis. El total de tu compra es $"+total)
-    } else if ( confirmacion && total < 2000 && total != 0) {
-        alert("El envío tiene un de $700. El total de tu compra es $"+total)
-    } else {
-        alert("El total de tu compra es"+total);
     }
 
-    return total;
+    calcularTotal() {
+        this.total = this.subtotal + this.envio + this.calcularIva()
+    }
 }
 
-agregarAlCarrito();
-calcularEnvio(aplicarDescuento(total));
+function pedidoProducto() {
+    while(!producto || producto == 0 || producto > 4) {
+        producto = parseInt(prompt("¿Qué producto desea comprar?:\n 1: Zapatilla($5000)\n 2: Camisa($1800) \n 3: Pantalón($2000)\n 4: Campera($7300)"))
+    }
+
+    switch(producto){
+        case 1:
+            producto = "Zapatilla";
+            Precio = 5000;
+            break;
+        case 2:
+            producto = "Camisa";
+            Precio = 1800;
+            break;
+        case 3:
+            producto = "Pantalón";
+            Precio = 2000;
+            break;
+        case 4:
+            producto = "Campera";
+            Precio = 7300;
+            break;
+    }
+
+    while(!cantidadProducto || cantidadProducto == 0) {
+        cantidadProducto = parseInt(prompt("Producto elegido: "+ producto + "\nIntroduzca la cantidad deseada.(Sólo números)"));
+    }
+
+    return new Pedido(producto, precio, cantidadProducto)
+}
+
+alert("Bienvenido/a a la tienda")
+
+const pedido = pedidoProducto();
+
+pedido.calcularSubtotal();
+pedido.calcularIva();
+pedido.calcularEnvio();
+pedido.calcularTotal();
+
+alert("Detalle del pedido:\n" + "- " + pedido.producto + " x " + pedido.cantidad + ": $" + pedido.precio * pedido.cantidad +"\n" + "- IVA 21%: " + pedido.calcularIva() + "\n" + "- Costo de envío: $" + pedido.envio + "\n" + "Total = $" + pedido.total)
+
+
+
