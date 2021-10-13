@@ -357,48 +357,76 @@ let total = 0;
 
 function agregarAlCarrito() {
     do {
-        let producto = prompt("¿Quieres comprar shampoo, acondicionador o ambos?")
-        let cantidad = parseInt(prompt("Ingresa la cantidad que deseas del producto"));
+        let cantidad = parseInt(prompt("Indica el kilometraje de tu auto")); 
+        let producto = prompt("Ingresa el servicio: Cambio de aceite, balanceo o ambos");
         let precio = 0;
 
         switch (producto) {
-            case "shampoo":
-                precio = 500;
+            case "cambio de aceite":
+                precio = 10;
                 break;
-            case "acondicionador":
-                precio = 700;
+            case "balanceo":
+                precio = 79990;
                 break;
             case "ambos":
-                precio = 1100;
+                precio = (10*cantidad + balanceo) - (20*100);
                 break;
             default :
-                alert("Alguno de los ingresados es incorrecto");
+                alert("Servicio incorrecto, por favor escriba el servicio correcto");
                 precio = 0;
                 cantidad = 0;
         }
         total = total + precio * cantidad;
-        otroProducto = confirm("¿Quieres agregar otro producto?")
-    }while(otroProducto);
+        otroProducto = confirm("¿Quieres agregar otro servicio?")
+    } while(otroProducto);
 }
+function metodoDePago (total) {
+    let metodo = prompt("Elige el método de pago ¿Débito o Crédito?")
 
-function aplicarDescuento(total) {
-    if(total >= 5000) {
-        total = total * 0.80;
+    switch (metodo) {
+        case "debito":
+            tarjeta = alert("El total de su pago con tarjeta de débito es $"+total);
+            if(debito){
+                alert("Transacción exitosa"); 
+            }
+            break;
+        case "credito":
+            tarjeta = pagoEnCuotas(total);
+            if(credito){
+                alert("Transacción exitosa");
+            }
+            break;
     }
-    return total;
+
 }
-function calcularEnvio(total) {
-    let confirmacion = confirm("¿Deseas envío a domicilio?")
-    if(confirmacion && total >= 2000) {
-        alert("Tienes envío gratis. El total de tu compra es $"+total)
-    } else if ( confirmacion && total < 2000 && total != 0) {
-        alert("El envío tiene un de $700. El total de tu compra es $"+total)
-    } else {
-        alert("El total de tu compra es"+total);
-    }
-
-    return total;
+function pagoEnCuotas(total) {
+    let seleccionCuotas = parseInt(prompt("Ingrese hasta un máximo de 12 cuotas (Sin interés)"));
+    cuotas = total / seleccionCuotas;
+    alert("Tu pago en cuotas quedará en $" +cuotas+ " mensuales");
 }
 
 agregarAlCarrito();
-calcularEnvio(aplicarDescuento(total));
+metodoDePago(total);  
+
+
+
+
+// let total = 3000000;
+
+// function eleccionCuotas() {
+//      do {
+//         let opcionCuotas = prompt("Total: $3.000.000 ¿Desea realizar su pago en cuotas? Sí / No")
+//         let cuotas = parseInt(prompt("Ingresa la cantidad que deseas del producto"));
+
+//         if((nombreIngresado !="") && ((nombreIngresado == "NO") || (nombreIngresado == "no") || (nombreIngresado == "No") || (nombreIngresado == "Si") || (nombreIngresado == "SI") || (nombreIngresado == "si"))){
+//             alert("Hola Ema"); 
+//         }
+//      }
+// }
+
+// function solicitarCuotas(){
+//     let cuotas = parseInt(prompt("Ingresar nombre"));
+//     alert("El nombre ingresado es " + nombreIngresado);
+// }
+
+// pagoEnCuotas();
