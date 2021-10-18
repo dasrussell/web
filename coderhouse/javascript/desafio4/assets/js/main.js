@@ -78,6 +78,7 @@ function pagoEnCuotas(total) {
         alert("Transacción exitosa")
     }
 }
+
 let total = totalDePago(agregarAlCarrito());
 console.log(total)
 metodoDePago(total);

@@ -1,44 +1,112 @@
-function search(arr, s){
-    let matches = [], i, key;
-    for( i = arr.length; i--; )
-        for( key in arr[i] )
-            if( arr[i].hasOwnProperty(key) && arr[i][key].indexOf(s) > -1 )
-                matches.push( arr[i] );
+class informacionAuto {
+  constructor(modelo, año, kilometraje) {
+    this.modeloAuto = modelo;
+    this.anoAuto = año;
+    this.kilometrajeAuto = kilometraje;
+    this.mostrarInformacionAuto = function () {
+      let msg = "Información de su auto ingresada: \n" +
+        "Modelo: " + this.modeloAuto +
+        "\nAño: " + this.anoAuto +
+        "\nKilometraje: " + this.kilometrajeAuto;
+      alert(msg);
+    };
+  }
+}
 
-    return matches;
-};
-let items = [
-      {
-        "Marca" : "Volkswagen",
-        "Modelo" : "Golf",
-        "Año" : "2022"
-      },
-      {
-        "Marca" : "Volkswagen",
-        "Modelo" : "Gol",
-        "Año" : "2021"
-      },
-      {
-        "Marca" : "Volkswagen",
-        "Modelo" : "Taos",
-        "Año" : "2022"
-      },
-      {
-        "Marca" : "Volkswagen",
-        "Modelo" : "Jetta",
-        "Año" : "2022"
-      },
-      {
-        "Marca" : "Volkswagen",
-        "Modelo" : "Tuareg",
-        "Año" : "2022"
-      },
-      {
-        "Marca" : "Volkswagen",
-        "Modelo" : "Amarok",
-        "Año" : "2022"
-      }
-];
+function agendaServicio() {
+  let modelo = prompt("Introduce el modelo del auto");
+  let año = prompt("Introduce el año del modelo");
+  let kilometraje = parseInt(prompt("introduce el kilometraje de auto"));
 
-let result = search(items, '22');
-console.log(result);
+  let displayInformacion = new informacionAuto(modelo, año, kilometraje);
+  displayInformacion.mostrarInformacionAuto();
+
+  return displayInformacion;
+}
+
+function agregarAlCarrito() {
+    let kilometraje = agendaServicio();
+    let producto;
+    let cambioDeAceite = true;
+    let balanceo = true;
+    let precio = 0;
+    do {
+        if (cambioDeAceite && balanceo) {
+            producto = prompt("Ingresa el servicio: " + "\n- Cambio de aceite ($0.5 x KM)" + "\n- Balanceo ($79990)\n- Ambos servicios (Obtienes un 20% de descuento)");
+            switch (producto) {
+                case "cambio de aceite":
+                    precio = 0.5 * kilometraje.kilometrajeAuto;
+                    cambioDeAceite = false;
+                    break;
+                case "balanceo":
+                    precio = 79990;
+                    balanceo = false;
+                    break;
+                case "ambos servicios":
+                    precio = (0.5 * kilometraje.kilometrajeAuto) + 79990;
+                    cambioDeAceite = false;
+                    balanceo = false;
+                    break;
+                default:
+                    alert("Servicio incorrecto, por favor escriba el servicio correcto");
+                    precio = 0;
+                    break;
+            }
+            otroProducto = confirm("¿Quieres agregar otro servicio?")
+        } else if (!cambioDeAceite && balanceo) {
+            producto = confirm("Servicio adicional disponible Balanceo: ¿Deseas agregarlo?");
+            if (producto) {
+                balanceo = false;
+                precio = precio + 79990;
+                otroProducto = false;
+            }
+        } else if (cambioDeAceite && !balanceo) {
+            producto = confirm("Servicio adicional disponible Cambio de Aceite: ¿Deseas agregarlo?");
+            if (producto) {
+                cambioDeAceite = false;
+                precio = precio + (0.5 * kilometraje.kilometrajeAuto);
+                otroProducto = false;
+            }
+        }
+    } while (otroProducto);
+    if (!cambioDeAceite && !balanceo) {
+        precio = precio * 0.80;
+        alert("Por elegir ambos servicios, obtendrás un 20% de descuento")
+    }
+    return precio;
+}
+
+function totalDePago(total) {
+    alert("El total a pagar es de: $" + total)
+    return total;
+}
+
+function metodoDePago(total) {
+    let metodo = prompt("Elige el método de pago ¿Débito o Crédito?")
+    switch (metodo) {
+        case "debito":
+            alert("El total de su pago con tarjeta de débito es $" + total);
+            alert("Transacción exitosa");
+            break;
+        case "credito":
+            pagoEnCuotas(total);
+            alert("Transacción exitosa");
+            break;
+    }
+}
+
+function pagoEnCuotas(total) {
+    let seleccionCuotas = parseInt(prompt("Ingrese hasta un máximo de 12 cuotas (Sin interés)"));
+    cuotas = total / seleccionCuotas;
+    if (seleccionCuotas >= 2) {
+        alert("Tu pago en cuotas quedará en $" + cuotas + " mensuales");
+    } else {
+        alert("Transacción exitosa")
+    }
+}
+
+function newFunction() {
+  let total = totalDePago(agregarAlCarrito());
+  console.log(total);
+  metodoDePago(total);
+}
