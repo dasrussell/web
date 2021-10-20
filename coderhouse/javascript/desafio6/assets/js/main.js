@@ -7,6 +7,8 @@ function search(arr, s){
 
     return matches;
 };
+
+// Lista de modelos que recibe el concesionario
 let items = [
       {
         "Marca" : "Volkswagen",
@@ -40,5 +42,6 @@ let items = [
       }
 ];
 
+// De esta manera, podría generar un buscador de modelos en mi array
 let result = search(items, '22');
 console.log(result);

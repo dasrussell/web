@@ -1,0 +1,6 @@
+.home-cover {
+    background-image: url('/coderhouse/javascript/desafio5/assets/img/2022-VW-Golf-R-6.jpg');
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+}
