@@ -13,6 +13,9 @@ class informacionAuto {
     };
 }
 
+window.onload = function(){
+    $('#kmModal').modal('show');
+};
 
 
 function agendaServicio() {
@@ -24,7 +27,7 @@ function agendaServicio() {
     displayInformacion.mostrarInformacionAuto();
 
     const div = document.querySelector(".infoauto");
-    div.innerHTML = `<li class="list-group-item"><strong>Kilometraje:</strong> <span>${kilometraje}</span></li>
+    let html = `<li class="list-group-item"><strong>Kilometraje:</strong> <span>${kilometraje}</span></li>
                      <li class="list-group-item"><strong>Modelo:</strong> <span>${modelo}</span></li>
                      <li class="list-group-item"><strong>Año:</strong> <span>${año}</span></li>
                      <div class="mb-3 mt-3">
@@ -42,11 +45,15 @@ function agendaServicio() {
                                 <small><strong>$${((kilometraje * 0.5) + 79990) * 0.80}</strong></small>
                             </li>             
                         </ul>
-                    </div>`;                   
+                    </div>`;       
+                    
+    $('.infoauto').html(html);
+
+    $('header').show();
     
     return displayInformacion;
 }
-           
+
 
 function agregarAlCarrito() {
     let kilometraje = agendaServicio();
@@ -134,4 +141,5 @@ function newFunction() {
     console.log(total);
     metodoDePago(total);
 }
+
 
