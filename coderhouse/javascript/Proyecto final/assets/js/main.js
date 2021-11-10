@@ -17,7 +17,6 @@ window.onload = function(){
     $('#kmModal').modal('show');
 };
 
-
 function agendaServicio() {
     let modelo = document.getElementById('modelSelection').value;
     let año = document.getElementById('modelYear').value;
@@ -49,7 +48,11 @@ function agendaServicio() {
                     
     $('.infoauto').html(html);
 
-    $('header').show();
+    $('header').show(function(){
+        // $(document).ready(function(){
+        //     $("header").FadeIn();
+        // });
+    });
     
     return displayInformacion;
 }
