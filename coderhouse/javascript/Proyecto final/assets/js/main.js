@@ -5,13 +5,14 @@ class informacionAuto {
         this.kilometrajeAuto = kilometraje;   
     }
     mostrarInformacionAuto () {
-        let msg = "Información de su auto ingresada: \n" +
+        let infoIngresada = "Información de su auto ingresada: \n" +
             "Modelo: " + this.modeloAuto +
             "\nAño: " + this.anoAuto +
             "\nKilometraje: " + this.kilometrajeAuto;
-        alert(msg);
+        return infoIngresada;
     };
 }
+
 
 
 function agendaServicio() {
