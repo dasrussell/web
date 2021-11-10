@@ -13,16 +13,39 @@ class informacionAuto {
     };
 }
 
+
 function agendaServicio() {
-    let modelo = prompt("Introduce el modelo del auto");
-    let año = prompt("Introduce el año del modelo");
-    let kilometraje = parseInt(prompt("introduce el kilometraje de auto"));
+    let modelo = document.getElementById('modelSelection').value;
+    let año = document.getElementById('modelYear').value;
+    let kilometraje = parseInt(document.getElementById('modelKm').value);
 
     let displayInformacion = new informacionAuto(modelo, año, kilometraje);
     displayInformacion.mostrarInformacionAuto();
 
+    const div = document.querySelector(".infoauto");
+    div.innerHTML = `<li class="list-group-item"><strong>Kilometraje:</strong> <span>${kilometraje}</span></li>
+                     <li class="list-group-item"><strong>Modelo:</strong> <span>${modelo}</span></li>
+                     <li class="list-group-item"><strong>Año:</strong> <span>${año}</span></li>
+                     <div class="mb-3 mt-3">
+                        <ul class="infoPrecios">
+                            <li class="mb-3">
+                                <h6 class="mb-0">Cambio de aceite</h6>
+                                <small><strong>$${kilometraje * 0.5} CLP</strong> ($0.5 CLP por Kilómetro)</small>
+                            </li>
+                            <li class="mb-3">
+                                <h6 class="mb-0">Balanceo</h6>
+                                <small><strong>$79.990 CLP</strong> (Precio único)</small>
+                            </li>
+                            <li class="mb-3">
+                                <h6 class="mb-0">Cambio de aceite + Balanceo <span class="badge bg-primary">20% de descuento</span></h6>
+                                <small><strong>$${((kilometraje * 0.5) + 79990) * 0.80}</strong></small>
+                            </li>             
+                        </ul>
+                    </div>`;                   
+    
     return displayInformacion;
 }
+           
 
 function agregarAlCarrito() {
     let kilometraje = agendaServicio();
@@ -110,3 +133,4 @@ function newFunction() {
     console.log(total);
     metodoDePago(total);
 }
+

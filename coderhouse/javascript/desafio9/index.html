@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Volkswagen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>JavaScript</title>
+</head>
+
+<body class="bg-dark">
+    <div class="container">
+        <nav class="navbar navbar-expand navbar-dark bg-dark d-flex">
+            <a class="navbar-brand text-center text-white" href="index.html">Volkswagen</a>
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <!-- <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul> -->
+            </div>
+        </nav>
+    </div>
+    <header>
+        <div class="container home-cover d-flex">
+            <div class="row justify-content-center align-items-center align-content-center w-100">
+                <div class="col-md-8 d-flex justify-content-center align-items-center align-content-center">
+                    <div class="text-center text-white">
+                        <h1>Volkswagen.</h1>
+                        <p class="lead">Agenda tu servicio de mantenimiento.</p>
+                        <a href="form.html" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#kmModal">Agendar servicio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal para declaración de Kilometraje -->
+    <div class="modal fade" id="kmModal" tabindex="-1" aria-labelledby="kmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="kmModalLabel">Kilometraje</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="modelKm" class="form-label">Indica el Kilomejtraje del auto</label>
+                        <input type="number" class="form-control" id="modelKm" placeholder="0 KM" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-target="#modelyearModal" data-bs-toggle="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- Modal para declaración de Modelo y año -->
+    <div class="modal fade" id="modelyearModal" tabindex="-1" aria-labelledby="modelyearModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modelyearModalLabel">Modelo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6 col-sm-12">
+                            <label for="modelSelection">Modelo</label>
+                            <select class="form-select" aria-label="Default select example" id="modelSelection" required>
+                                <option selected disabled value="">- Selecciona el modelo -</option>
+                                <option value="Golf">Golf</option>
+                                <option value="Gol">Gol</option>
+                                <option value="Taos">Taos</option>
+                                <option value="Jetta">Jetta</option>
+                                <option value="Tuareg">Tuareg</option>
+                                <option value="Amarok">Amarok</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="mb-3">
+                                <label for="modelYear" class="form-label mb-0">Año del modelo</label>
+                                <input type="number" class="form-control" id="modelYear" placeholder="2021" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" onclick="modelInformation();">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+
+
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>

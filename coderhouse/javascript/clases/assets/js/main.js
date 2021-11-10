@@ -819,3 +819,324 @@
 // const aumentos = productos.map(producto => producto.precio += 30);
 // console.log(aumentos);
 // //[155, 100, 80, 130] y el valor de cada producto cambio.
+
+
+
+
+/////////////////////////////////// STORAGE Y JSON //////////////////////////////
+
+// 1 - Guardamos datos del usuario -> Método Set
+// 2 - Obtenemos datos del usuario -> Método Get 
+
+// Método ->  localStorage.setItem(clave, valor)
+// clave = nombre para identificar el elemento 
+// valor = valor/contenido del elemento 
+// localStorage.setItem('bienvenida', '¡Hola Code!');
+// localStorage.setItem('esValido', true);
+// localStorage.setItem('unNumero', 20);
+
+
+
+// let mensaje =  localStorage.getItem('bienvenida');
+// let bandera =  localStorage.getItem('esValido');
+// let numero  =  localStorage.getItem('unNumero');
+
+// console.log(typeof mensaje); //string;
+// console.log(typeof bandera); //string;
+// console.log(typeof numero);  //string;
+
+
+
+// // Método ->  sessionStorage.setItem(clave, valor)
+// // clave = nombre del elemento
+// // valor = Contenido del elemento
+// sessionStorage.setItem('seleccionados', [1,2,3]);
+// sessionStorage.setItem('esValido', false);
+// sessionStorage.setItem('email', 'info@email.com');
+
+
+
+// let lista   =  sessionStorage.getItem('seleccionados').split(",");
+// let bandera = (sessionStorage.getItem('esValido') == 'true');
+// let email   =  sessionStorage.getItem('email');
+
+// console.log(typeof lista);   //object ["1","2","3"];
+// console.log(typeof bandera); //boolean;
+// console.log(typeof email);   //string;
+
+
+
+// //Guarda una clave
+// localStorage.numeroPrueba = 5;
+
+// //Leer una clave
+// alert( localStorage.numeroPrueba ); // 5
+
+// let clave = 'toString';	 //toString método reservado	
+// localStorage[clave] = "6"; //No se guarda este dato
+
+
+
+// localStorage.setItem('bienvenido','¡Hola Coder!');
+// localStorage.setItem('booleano',true);
+
+// let mensaje = localStorage.getItem('bienvenido','¡Hola Coder!');
+// let booleano = localStorage.getItem('booleano',true);
+
+// console.log(mensaje);
+
+
+
+
+// sessionStorage.setItem('seleccionados', [1,2,3]);
+// sessionStorage.setItem('esValido', false);
+// sessionStorage.setItem('email', 'mail@mail.com');
+
+
+// let lista = sessionStorage.getItem('seleccionados').split(",");
+// let bandera = (sessionStorage.getItem('esValido') == 'true');
+
+// // console.log(lista);
+// console.log(bandera);
+
+
+
+//Ciclo para recorrer las claves almacenadas en el objeto localStorage (bucle for)
+// for (let i = 0; i < localStorage.length; i++) {
+//     let clave = localStorage.key(i);
+//     console.log("Clave: "+ clave);
+//     console.log("Valor: "+ localStorage.getItem(clave));
+// }
+
+// localStorage.setItem('bienvenida', '¡Hola Code!');
+// // sessionStorage.setItem('esValido', true);
+
+// // localStorage.removeItem('bienvenida');
+// // sessionStorage.removeItem('esValido');
+// // localStorage.clear()    //elimina toda la información
+// // sessionStorage.clear() //elimina toda la información
+
+
+
+// for (let i = 0; i < localStorage.length; i++) {
+//     let clave = localStorage.key(i);
+//     console.log(i + " " + "Clave: "+ clave);
+//     console.log(i + " " + "Valor: "+ localStorage.getItem(clave));
+// }
+
+
+
+// localStorage.removeItem('bienvenida');
+
+
+// // GUARDAR OBJETOS EN LOCALSTORAGE VIA JSON
+// const producto1 = { id: 2, producto: "Arroz" };
+// const enJSON    = JSON.stringify(producto1);
+
+// console.log(enJSON); // {"id":2,"producto":"Arroz"}
+// console.log(typeof producto1); // object
+// console.log(typeof enJSON);    // string
+
+// localStorage.setItem("producto1", enJSON);
+// // Se guarda {"id":2,"producto":"Arroz"}
+
+
+
+// // SE PARSEA EL OBJETO
+// const enJSON    = '{"id":2,"producto":"Arroz"}';
+// const producto1 = JSON.parse(enJSON);
+
+// console.log(typeof enJSON);     // string
+// console.log(typeof producto1);  // object
+// console.log(producto1.producto); // Arroz
+
+// const producto2 = JSON.parse(localStorage.getItem("producto1"));
+// console.log(producto2.id);  // 2  
+
+
+
+// const productos = [{ id: 1,  producto: "Arroz", precio: 125 },
+//                   {  id: 2,  producto: "Fideo", precio: 70 },
+//                   {  id: 3,  producto: "Pan"  , precio: 50},
+//                   {  id: 4,  producto: "Flan" , precio: 100}];
+
+// const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+
+// //Almacenar producto por producto
+// for (const producto of productos) {
+//     guardarLocal(producto.id, JSON.stringify(producto));
+// }
+// // o almacenar array completo
+// guardarLocal("listaProductos", JSON.stringify(productos));
+
+
+// // MULTIPLICAR
+// const multiplicar = (a,b) => a * b;
+// const guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)};
+
+// let ingresarNumero = parseInt(prompt("Ingresar número"));
+
+// for(let i = 1; i <= 10; i++) {
+//     guardarLocal(i, multiplicar(parseInt(ingresarNumero), i));
+// }
+
+
+
+
+
+
+/////////////////////////////////// DOM ///////////////////////////////////
+
+// let div     = document.getElementById("app");
+// let parrafo = document.getElementById("parrafo1");
+// console.log(div.innerHTML);
+// console.log(parrafo.innerHTML);
+
+
+
+
+// let paises = document.getElementsByClassName("paises");
+// console.log(paises[0].innerHTML);
+// console.log(paises[1].innerHTML);
+// console.log(paises[2].innerHTML);  
+
+
+
+
+// let contenedores = document.getElementsByTagName("div");
+// console.log(contenedores[0].innerHTML);
+// console.log(contenedores[1].innerHTML);
+// console.log(contenedores[2].innerHTML);
+
+
+
+
+// // Crear nodo de tipo Elemento, etiqueta p
+// let parrafo = document.createElement("p");
+// // Insertar HTML interno
+// parrafo.innerHTML = "<h2>¡Hola Coder!</h2>"; 
+// // Añadir el nodo Element como hijo de body
+// document.body.appendChild(parrafo);
+
+
+
+
+// let parrafo      = document.getElementById("parrafo1");
+// //Elminando el propio elemento, referenciando al padre
+// parrafo.parentNode.removeChild(parrafo);
+
+// let paises       = document.getElementsByClassName("paises");
+// //Eliminando el primer elemento de clase paises
+// paises[0].parentNode.removeChild(paises[0])
+
+
+
+
+// //Obtenemos el nodo donde vamos a agregar los nuevos elementos
+// let padre      = document.getElementById("personas");
+// //Array con la información a agregar
+// let personas   = ["HOMERO","MARGE", "BART", "LISA","MAGGIE"];
+// //Iteramos el array con for...of
+// for (const persona of personas) {
+//     //Creamos un nodo <li> y agregamos al padre en cada ciclo
+//     let li = document.createElement("li");
+//     li.innerHTML = persona
+//     padre.appendChild(li);
+// }
+
+
+
+
+// let producto = { id: 1,  nombre: "Arroz", precio: 125 };
+// let concatenado = "ID : " + producto.id +" - Producto: " + producto.nombre + "$ "+producto.precio;
+// let plantilla   = `ID: ${producto.id} - Producto ${producto.nombre} $ ${producto.precio}`;
+// //El valor es idéntico pero la construcción de la plantilla es màs sencilla
+// console.log(concatenado);
+// console.log(plantilla);
+
+
+
+
+// let producto   = { id: 1,  nombre: "Arroz", precio: 125 };
+// let contenedor = document.createElement("div");
+// //Definimos el innerHTML del elemento con una plantilla de texto
+// contenedor.innerHTML = `<h3> ID: ${producto.id}</h3>
+//                         <p>  Producto: ${producto.nombre}</p>
+//                         <b> $ ${producto.precio}</b>`;
+// //Agregamos el contenedor creado al body
+// document.body.appendChild(contenedor);
+
+
+
+
+// const productos = [{ id: 1,  nombre: "Arroz", precio: 125 },
+//                   {  id: 2,  nombre: "Fideo", precio: 70 },
+//                   {  id: 3,  nombre: "Pan"  , precio: 50},
+//                   {  id: 4,  nombre: "Flan" , precio: 100}];
+
+// for (const producto of productos) {
+//     let contenedor = document.createElement("div");
+//     //Definimos el innerHTML del elemento con una plantilla de texto
+//     contenedor.innerHTML = `<h3> ID: ${producto.id}</h3>
+//                             <p>  Producto: ${producto.nombre}</p>
+//                             <b> $ ${producto.precio}</b>`;
+//     document.body.appendChild(contenedor);
+// }
+
+
+
+/////////////////////////////////// EVENTOS ///////////////////////////////////
+
+
+
+// let boton = document.getElementById("btnPrincipal")
+//       boton.addEventListener("click", respuestaClick)
+//       function respuestaClick(){
+//         console.log("Respuesta evento");
+//       }
+
+
+//       let boton = document.getElementById("btnPrincipal")
+//       boton.onclick = () =>{console.log("Respuesta 2")}
+
+
+
+// // Eventos del mouse
+// let boton         = document.getElementById("btnMain");
+// boton.onclick     = () => {console.log("Click")};
+// boton.onmousemove = () => {console.log("Move")}
+
+
+
+
+// //KEYBOARD EVENT
+// let input1  = document.getElementById("nombre");
+// let input2  = document.getElementById("edad");
+// input1.onkeyup   = () => {console.log("keyUp")};
+// input2.onkeydown = () => {console.log("keyDown")};
+
+
+
+// // Onchange, capta los cambios en inputs
+// let input1  = document.getElementById("nombre");
+// let input2  = document.getElementById("edad");
+// input1.onchange = () => {console.log("valor1")};
+// input2.onchange = () => {console.log("valor2")};
+
+
+
+// // Evento Submit
+// let miFormulario      = document.getElementById("formulario");
+// miFormulario.addEventListener("submit", validarFormulario);
+
+// function validarFormulario(e){
+//     //Cancelamos el comportamiento del evento
+//     e.preventDefault();
+//     //Obtenemos el elemento desde el cual se disparó el evento
+//     let formulario = e.target
+//     //Obtengo el valor del primero hijo <input type="text">
+//     console.log(formulario.children[0].value); 
+//     //Obtengo el valor del segundo hijo <input type="number"> 
+//     console.log(formulario.children[1].value);  
+// }
+
