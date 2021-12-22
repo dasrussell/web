@@ -1,120 +1,12 @@
-class informacionAuto {
-    constructor(modelo, año, kilometraje) {
-        this.modeloAuto = modelo;
-        this.anoAuto = año;
-        this.kilometrajeAuto = kilometraje;   
-    }
-    mostrarInformacionAuto () {
-        let infoIngresada = "Información de su auto ingresada: \n" +
-            "Modelo: " + this.modeloAuto +
-            "\nAño: " + this.anoAuto +
-            "\nKilometraje: " + this.kilometrajeAuto;
-        return infoIngresada;
-    };
-}
+import dataAgendaServicio from "./components/agendaServicio.js";
+import dataInfoServicios from "./components/infoServicios.js";
 
 window.onload = function(){
     $('#kmModal').modal('show');
-};
-
-function infoServicios(){
-    let modelo = document.getElementById('modelSelection').value;
-    let año = document.getElementById('modelYear').value;
-    let kilometraje = parseInt(document.getElementById('modelKm').value);
-
-    let displayInformacion = new informacionAuto(modelo, año, kilometraje);
-    displayInformacion.mostrarInformacionAuto();
-
-    const div = document.querySelector(".infoServicio");
-    let html = `<li class="list-group-item"><strong>Kilometraje:</strong> <span>${kilometraje}</span></li>
-                     <li class="list-group-item"><strong>Modelo:</strong> <span>${modelo}</span></li>
-                     <li class="list-group-item"><strong>Año:</strong> <span>${año}</span></li>
-                     <div class="mb-3 mt-3">
-                        <ul class="infoPrecios">
-                            <li class="mb-3">
-                                <h6 class="mb-0">Cambio de aceite</h6>
-                                <small><strong>$${kilometraje * 0.5} CLP</strong> ($0.5 CLP por Kilómetro)</small>
-                            </li>
-                            <li class="mb-3">
-                                <h6 class="mb-0">Balanceo</h6>
-                                <small><strong>$79.990 CLP</strong> (Precio único)</small>
-                            </li>
-                            <li class="mb-3">
-                                <h6 class="mb-0">Cambio de aceite + Balanceo <span class="badge bg-primary">20% de descuento</span></h6>
-                                <small><strong>$${((kilometraje * 0.5) + 79990) * 0.80}</strong></small>
-                            </li>             
-                        </ul>
-                    </div>`;       
-                    
-    $('.infoServicio').html(html);
-    
-    return displayInformacion;
-}
-
-function agendaServicio() {
-    let modelo = document.getElementById('modelSelection').value;
-    let año = document.getElementById('modelYear').value;
-    let kilometraje = parseInt(document.getElementById('modelKm').value);
-    let servicio = document.getElementById('serviceSelection').value;
-    let sucursal = document.getElementById('locationSelection').value;
-    let tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate()+1);
-
-    let displayInformacion = new informacionAuto(modelo, año, kilometraje);
-    displayInformacion.mostrarInformacionAuto();
-
-    const div = document.querySelector(".infoauto");
-    let html = `<li class="list-group-item"><strong>Kilometraje:</strong> <span>${kilometraje}</span></li>
-                     <li class="list-group-item"><strong>Modelo:</strong> <span>${modelo}</span></li>
-                     <li class="list-group-item"><strong>Año:</strong> <span>${año}</span></li>
-                     <div class="mb-3 mt-3">
-                        <ul class="infoPrecios">
-                            <li class="mb-3">
-                                <h6 class="mb-0">Cambio de aceite</h6>
-                                <small><strong>$${kilometraje * 0.5} CLP</strong> ($0.5 CLP por Kilómetro)</small>
-                            </li>
-                            <li class="mb-3">
-                                <h6 class="mb-0">Balanceo</h6>
-                                <small><strong>$79.990 CLP</strong> (Precio único)</small>
-                            </li>
-                            <li class="mb-3">
-                                <h6 class="mb-0">Cambio de aceite + Balanceo <span class="badge bg-primary">20% de descuento</span></h6>
-                                <small><strong>$${((kilometraje * 0.5) + 79990) * 0.80}</strong></small>
-                            </li>             
-                        </ul>
-                    </div>
-                    <div class="mb-3">
-                        <h6>Selecciona una fecha disponible en ${sucursal}</h6>
-                        <div class="form-check m-2">
-                            <input class="form-check-input" type="radio" name="availableDate" id="availableDate1" value="option1" checked>
-                            <label class="form-check-label" for="availableDate1">
-                            ${servicio} - <b>${(tomorrow.getDate()+1) + "/" + (tomorrow.getMonth()+1) + "/" + tomorrow.getFullYear()}</b> entre <b>09:00 a 12:00 Hrs</b>.
-                            </label>
-                        </div>
-                        <div class="form-check m-2">
-                            <input class="form-check-input" type="radio" name="availableDate" id="availableDate2" value="option2">
-                            <label class="form-check-label" for="availableDate2">
-                            ${servicio} - <b>${(tomorrow.getDate()+2) + "/" + (tomorrow.getMonth()+1) + "/" + tomorrow.getFullYear()}</b> entre <b>09:00 a 12:00 Hrs</b>.
-                            </label>
-                        </div>
-                        <div class="form-check m-2">
-                            <input class="form-check-input" type="radio" name="availableDate" id="availableDate3" value="option3">
-                            <label class="form-check-label" for="availableDate3">
-                            ${servicio} - <b>${(tomorrow.getDate()+3) + "/" + (tomorrow.getMonth()+1) + "/" + tomorrow.getFullYear()}</b> entre <b>09:00 a 12:00 Hrs</b>.
-                            </label>
-                        </div>
-                        <div class="form-check m-2">
-                            <input class="form-check-input" type="radio" name="availableDate" id="availableDate4" value="option4">
-                            <label class="form-check-label" for="availableDate4">
-                            ${servicio} - <b>${(tomorrow.getDate()+4) + "/" + (tomorrow.getMonth()+1) + "/" + tomorrow.getFullYear()}</b> entre <b>09:00 a 12:00 Hrs</b>.
-                            </label>
-                        </div>
-                    </div>`;       
-                    
-    $('.infoauto').html(html);
-    $('header').show();
-    
-    return displayInformacion;
+    let btnInfoServicio = document.getElementById('#btnInfoServicio')
+    let btnAgendaServicios = document.getElementById('#btnAgendaServicios')
+    btnAgendaServicio.addEventListener("click",dataAgendaServicio,false)
+    btnInfoServicios.addEventListener("click",dataInfoServicios,false)
 };
 
 function agregarAlCarrito() {
@@ -203,5 +95,3 @@ function newFunction() {
     console.log(total);
     metodoDePago(total);
 }
-
-
